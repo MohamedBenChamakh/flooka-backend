@@ -16,7 +16,9 @@ async function createNewLive(req, res) {
 }
 
 async function getAllLives(req, res) {
-    Channel.find()
+    Channel
+        .find()
+        .sort({ title: 1 })
         .then((response) => res.status(200).json(response))
         .catch(err => { res.status(500).json({ message: 'Error while fetching posts ' }) })
 }
