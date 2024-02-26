@@ -1,10 +1,9 @@
-
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const mongodb = require("./lib/mongodb")
 const proxyMiddleware = require('./middelwares/proxy');
-require('dotenv').config();
 proxyMiddleware(app);
 
 const channelRoutes = require("./routes/channel");
