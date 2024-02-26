@@ -3,21 +3,15 @@ const app = require('./src/app');
 const server = http.createServer(app);
 const cors = require('cors');
 
-app.use(cors());
 //CROSS-ORIGIN
-app.get((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
-    );
-    res.setHeader(
-        "Access-Control-Allow-Methods",
-        "GET, POST, PUT, DELETE, PATCH, OPTIONS"
-    );
-    next();
-});
+const corsOptions = {
+    origin: ['https://flooka-tv.vercel.app'], // Pass the allowed origins as an array
+    methods: ['GET', 'POST'], // Optionally, specify allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Optionally, specify allowed headers
+    credentials: true, // Optionally, enable credentials
+};
 
+app.use(cors(corsOptions));
 app.set('view engine', 'ejs');
 
 const normalizePort = val => {
