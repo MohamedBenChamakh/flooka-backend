@@ -1,15 +1,25 @@
 {
     "version": 2,
     "builds": [
-      {
-        "src": "server.js",
-        "use": "@now/node"
-      }
+        {
+            "src": "server.js",
+            "use": "@now/node"
+        }
     ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "server.js"
-      }
-    ]
-  }
+        {
+            "src": "/(.*)",
+            "dest": "server.js"
+        }
+    ],
+    "functions": {
+        "api": {
+            "source": "server.js",
+            "package": {
+                "include": [
+                    "package.json"
+                ]
+            }
+        }
+    }
+}
