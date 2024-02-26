@@ -3,8 +3,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const mongodb = require("./lib/mongodb")
+const proxyMiddleware = require('./middelwares/proxy');
 require('dotenv').config();
-
+proxyMiddleware(app);
 
 const channelRoutes = require("./routes/channel");
 
@@ -29,6 +30,6 @@ app.get('/', (req, res) => {
     res.send('Hey this is my API running 🥳')
 })
 //ROUTES
-app.use("/api/live", channelRoutes);
+app.use("/live", channelRoutes);
 
 module.exports = app;
