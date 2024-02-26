@@ -1,5 +1,5 @@
 
-const Channel = require("../models/Channel");
+const Channel = require("../models/channel");
 const moment = require('moment');
 const { parseString } = require('xml2js');
 

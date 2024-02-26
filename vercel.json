@@ -2,13 +2,8 @@
     "version": 2,
     "builds": [
       {
-        "src": "server.js",
-        "use": "@now/node",
-        "config": {
-          "includeFiles": [
-            "package.json"
-          ]
-        }
+        "src": "server.js", 
+        "use": "@vercel/node"
       }
     ],
     "routes": [
@@ -18,4 +13,3 @@
       }
     ]
   }
-  

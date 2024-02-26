@@ -2,7 +2,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const mongoose = require('mongoose');
+const mongodb = require("./lib/mongodb")
+require('dotenv').config();
+
 
 const channelRoutes = require("./routes/channel");
 
@@ -20,20 +22,9 @@ app.get((req, res, next) => {
     next();
 });
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+mongodb.connectToDatabase();
 
-
-//MONGO-DB CONNECTION
-/*mongoose.connect('mongodb+srv://mohamedChamakh98:YbGVcqyUhYesGkzq@cluster-app.tkaut.mongodb.net/?retryWrites=true&w=majority&directConnection=true'
-    )
-    .then(() => console.log('Connexion à MongoDB réussie !'))
-    .catch(() => console.log('Connexion à MongoDB échouée !'));
-*/
-
-mongoose.connect(process.env.MONGODB_URI
-    )
-    .then(() => console.log('Connexion à MongoDB réussie !'))
-    .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 //ROUTES
 app.use("/live", channelRoutes);
