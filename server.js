@@ -1,17 +1,7 @@
 const http = require('http');
 const app = require('./src/app');
 const server = http.createServer(app);
-const cors = require('cors');
 
-//CROSS-ORIGIN
-const corsOptions = {
-    origin: ['https://flooka-tv.vercel.app'], // Pass the allowed origins as an array
-    methods: ['GET', 'POST'], // Optionally, specify allowed HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Optionally, specify allowed headers
-    credentials: true, // Optionally, enable credentials
-};
-
-app.use(cors(corsOptions));
 app.set('view engine', 'ejs');
 
 const normalizePort = val => {
