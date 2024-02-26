@@ -25,7 +25,9 @@ app.get((req, res, next) => {
 app.use(bodyParser.json());
 mongodb.connectToDatabase();
 
-
+app.get('/', (req, res) => {
+    res.send('Hey this is my API running 🥳')
+})
 //ROUTES
 app.use("/live", channelRoutes);
 
