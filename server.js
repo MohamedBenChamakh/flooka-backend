@@ -1,8 +1,8 @@
 const http = require('http');
 const app = require('./src/app');
 const server = http.createServer(app);
-const cors = require('cors');
-app.use(cors());
+//const cors = require('cors');
+//app.use(cors());
 app.set('view engine', 'ejs');
 
 const normalizePort = val => {
