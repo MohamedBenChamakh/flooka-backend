@@ -30,6 +30,11 @@ app.use(bodyParser.json())
     .catch(() => console.log('Connexion à MongoDB échouée !'));
 */
 
+mongoose.connect(process.env.MONGODB_URI
+    )
+    .then(() => console.log('Connexion à MongoDB réussie !'))
+    .catch(() => console.log('Connexion à MongoDB échouée !'));
+
 //ROUTES
 app.use("/live", channelRoutes);
 
