@@ -10,7 +10,7 @@ const channelRoutes = require("./routes/channel");
 
 //CROSS-ORIGIN
 app.get((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Origin", process.env.FRONT_URI);
     res.setHeader(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
@@ -29,6 +29,6 @@ app.get('/', (req, res) => {
     res.send('Hey this is my API running 🥳')
 })
 //ROUTES
-app.use("/live", channelRoutes);
+app.use("/api/live", channelRoutes);
 
 module.exports = app;
