@@ -24,7 +24,7 @@ app.use(bodyParser.json())
 
 
 //MONGO-DB CONNECTION
-mongoose.connect('mongodb+srv://mohamedChamakh98:YbGVcqyUhYesGkzq@cluster-app.tkaut.mongodb.net/?retryWrites=true&w=majority'
+mongoose.connect('mongodb+srv://mohamedChamakh98:YbGVcqyUhYesGkzq@cluster-app.tkaut.mongodb.net/?retryWrites=true&w=majority&directConnection=true'
     )
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch(() => console.log('Connexion à MongoDB échouée !'));
